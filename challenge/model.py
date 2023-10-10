@@ -83,6 +83,8 @@ class DelayModel:
         Returns:
             (List[int]): predicted targets.
         """
+        if not self._model:
+            raise ValueError("The model has not been fitted.")
         predictions = self._model.predict(features).tolist()
         return predictions
 
